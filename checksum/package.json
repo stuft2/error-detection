@@ -1,0 +1,18 @@
+{
+  "name": "@stuft2/checksum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash.chunk": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/lodash.chunk": "^4.2.6"
+  }
+}
