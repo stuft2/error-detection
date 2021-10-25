@@ -17,17 +17,11 @@ describe ('Generate CRC8 Checksum', () => {
     test('Test hello world error', () => {
         const text = 'hello world'
         const input = text2Binary(text)
-        const error = input.replace('1', '0')
+        const error = input.replace('1', '0') // Change first "1" bit to "0"
 
-        console.log(binaryToText(input))
-        console.log(binaryToText(error))
+        const checksum = genCrc8Checksum(input)
+        const errChecksum = genCrc8Checksum(error)
 
-        const sequence = genCrc8Checksum(input)
-        const errorSequence = genCrc8Checksum(error)
-
-        console.log(sequence)
-        console.log(errorSequence)
-
-        expect(sequence).not.toEqual(errorSequence)
+        expect(checksum).not.toEqual(errChecksum)
     })
 })
