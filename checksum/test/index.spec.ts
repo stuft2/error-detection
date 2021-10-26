@@ -14,7 +14,7 @@ function binaryToText(bin: string) {
     }
 
 describe ('Generate CRC8 Checksum', () => {
-    test('Test hello world error', () => {
+    test('Test "hello world" error', () => {
         const text = 'hello world'
         const input = text2Binary(text)
         const error = input.replace('1', '0') // Change first "1" bit to "0"
@@ -23,5 +23,45 @@ describe ('Generate CRC8 Checksum', () => {
         const errChecksum = genCrc8Checksum(error)
 
         expect(checksum).not.toEqual(errChecksum)
+    })
+
+    test('Test "ahoy world" error', () => {
+        const text = 'ahoy world'
+        const input = text2Binary(text)
+        const error = input.replace('1', '0') // Change first "1" bit to "0"
+
+        const checksum = genCrc8Checksum(input)
+        const errChecksum = genCrc8Checksum(error)
+
+        expect(checksum).not.toEqual(errChecksum)
+    })
+
+    test('Test "ahem world" error', () => {
+        const text = 'ahem world'
+        const input = text2Binary(text)
+        const error = input.replace('1', '0') // Change first "1" bit to "0"
+
+        const checksum = genCrc8Checksum(input)
+        const errChecksum = genCrc8Checksum(error)
+
+        expect(checksum).not.toEqual(errChecksum)
+    })
+
+    test('Test "okay world" without error', () => {
+        const text = 'okay world'
+        const input = text2Binary(text)
+
+        const checksum = genCrc8Checksum(input)
+
+        expect(checksum).toHaveLength(2)
+    })
+
+    test('Test "hello provo" without error', () => {
+        const text = 'okay world'
+        const input = text2Binary(text)
+
+        const checksum = genCrc8Checksum(input)
+
+        expect(checksum).toHaveLength(2)
     })
 })
